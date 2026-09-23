@@ -1,14 +1,12 @@
 """
-Title: Arcade 1
+Title: Arcade 3
 Date: 09/22/2026
 Author: Austin WP
 """
 
-name = input("Enter your name: ")
-name = name.title() # .title() method capitalizes the first letter of each word
+name = input("Enter your name: ").title() # .title() method capitalizes the first letter of each word
 
-favouriteColour = input("Enter your favourite colour: ")
-favouriteColour = favouriteColour.title() # .title() method capitalizes the first letter of each word - very convenient! :)
+favouriteColour = input("Enter your favourite colour: ").title() # .title() method capitalizes the first letter of each word - very convenient! :)
 
 welcomeMessage = f"Welcome to {favouriteColour} Arcade"
 
@@ -20,11 +18,10 @@ print("*" * bannerLength)
 
 print(f"Hello {name}!")
 
-favouriteGenre = input("Enter your favourite genre: ")
+favouriteGenre = input("Enter your favourite genre: ").lower() # .lower() method makes everything lowercase
 
 # string addition joins specific words into one string
-specialCode = favouriteColour[0:2] + name[-1] + favouriteGenre[0:2] # [0:2] uses the first two letters in the string
-
-specialCode = specialCode.upper() # .upper() method makes everything uppercase
-
+specialCode = (favouriteColour[:2] + name[-1] + favouriteGenre[:2]).upper()
+# [:2] uses the first two letters in the string
+# .upper() method makes everything uppercase
 print(f"Here is your special code for your next visit: '{specialCode}'")

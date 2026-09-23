@@ -4,11 +4,9 @@ Date: 09/22/2026
 Author: Austin WP
 """
 
-name = input("Enter your name: ")
-name = name.title() # .title() method capitalizes the first letter of each word
+name = input("Enter your name: ").title() # .title() method capitalizes the first letter of each word
 
-favouriteColour = input("Enter your favourite colour: ")
-favouriteColour = favouriteColour.title() # .title() method capitalizes the first letter of each word - very convenient! :)
+favouriteColour = input("Enter your favourite colour: ").title() # .title() method capitalizes the first letter of each word - very convenient! :)
 
 welcomeMessage = f"Welcome to {favouriteColour} Arcade"
 
@@ -20,100 +18,96 @@ print("*" * bannerLength)
 
 print(f"Hello {name}!")
 
-favouriteGenre = input("Enter your favourite genre: ")
-favouriteGenre = favouriteGenre.lower()
+favouriteGenre = input("Enter your favourite genre: ").lower() # .lower() method makes everything lowercase
 
 # string addition joins specific words into one string
-specialCode = favouriteColour[0:2] + name[-1] + favouriteGenre[0:2] # [0:2] uses the first two letters in the string
-specialCode = specialCode.upper() # .upper() method makes everything uppercase
+specialCode = (favouriteColour[:2] + name[-1] + favouriteGenre[:2]).upper()
+# [:2] uses the first two letters in the string
+# .upper() method makes everything uppercase
 print(f"Here is your special code for your next visit: '{specialCode}'")
 
 balance = (((len(favouriteColour) + len(favouriteGenre))/2) + (len(name))/2)
-print(f"Your balance: ${balance}0")
+print(f"Your balance: ${balance:.2f}") #:.2f just formats the float to go to two decimal points
 
 if favouriteGenre == "action":
     # Display Games
     print("""
-    Available Games:
-    Street Brawler - $7
-    Laser Tag - $5
+Available Games:
+Street Brawler - $7
+Laser Tag - $5
     """)
 
     # Attempt to Purchase
     if balance >= 7:
         print("Loaded up Street Brawler!")
-        remainingBalance = balance - 7
-        print(f"Remaining Balance: ${remainingBalance}0")
-    elif 5 <= balance < 7:
+        balance -= 7
+    elif balance >=5:
         print("Loaded up Street Brawler!")
-        remainingBalance = balance - 5
-        print(f"Remaining Balance: ${remainingBalance}0")
+        balance -= 5
     else:
         print("You cannot afford a game :(")
-        print(f"Remaining Balance: ${balance}0")
+
+    print(f"Remaining Balance: ${balance:.2f}")
 
 elif favouriteGenre == "racing":
     # Display Games
     print("""
-    Available Games:
-    Turbo Drift - $6
-    Moto GP - $5 
+Available Games:
+Turbo Drift - $6
+Moto GP - $5 
     """)
 
     # Attempt to Purchase
     if balance >= 6:
         print("Loaded up Turbo Drift!")
-        remainingBalance = balance - 6
-        print(f"Remaining Balance: ${remainingBalance}0")
-    elif 5 <= balance < 6:
+        balance -= 6
+    elif balance >= 5:
         print("Loaded up Moto GP!")
-        remainingBalance = balance - 5
-        print(f"Remaining Balance: ${remainingBalance}0")
+        balance -= 5
     else:
         print("You cannot afford a game :(")
-        print(f"Remaining Balance: ${balance}0")
+
+    print(f"Remaining Balance: ${balance:.2f}")
 
 elif favouriteGenre == "shooter":
     # Display Games
     print("""
-    Available Games:
-    Galaxy Wars - $8
-    Duck Hunt - $6
+Available Games:
+Galaxy Wars - $8
+Duck Hunt - $6
     """)
 
     # Attempt to Purchase
     if balance >= 8:
         print("Loaded up Galaxy Wars!")
-        remainingBalance = balance - 8
-        print(f"Remaining Balance: ${remainingBalance}0")
-    elif 6 <= balance < 8:
+        balance -= 8
+    elif balance >= 6:
         print("Loaded up Duck Hunt!")
-        remainingBalance = balance - 6
-        print(f"Remaining Balance: ${remainingBalance}0")
+        balance -= 6
     else:
         print("You cannot afford a game :(")
-        print(f"Remaining Balance: ${balance}0")
+
+    print(f"Remaining Balance: ${balance:.2f}")
 
 elif favouriteGenre == "puzzle":
     # Display Games
     print("""
-    Available Games:
-    Block Drop - $10
-    Maze Runner - $5
+Available Games:
+Block Drop - $10
+Maze Runner - $5
     """)
 
     # Attempt to Purchase
     if balance >= 10:
         print("Loaded up Block Drop!")
-        remainingBalance = balance - 10
-        print(f"Remaining Balance: ${remainingBalance}0")
-    elif 5 <= balance < 10:
+        balance -= 10
+    elif balance >= 5:
         print("Loaded up Maze Runner!")
-        remainingBalance = balance - 5
-        print(f"Remaining Balance: ${remainingBalance}0")
+        balance -= 5
     else:
         print("You cannot afford a game :(")
-        print(f"Remaining Balance: ${balance}0")
+
+    print(f"Remaining Balance: ${balance:.2f}")
 else:
     print(f"There are no games for the {favouriteGenre} genre.")
 
