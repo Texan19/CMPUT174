@@ -1,19 +1,44 @@
-"""
-Title: Lecture Practice Code
-"""
+def checkUsername(username, domainList):
+    """
+    Checks if username has a single @ sign and is in the domainList
+    :param username: str
+    :param domainList: list
+    :return: bool
+    """
+    validUsername = False
 
-"""
-words = ["great", "oolong", "apple", "panda", "igloo", "banana"]
-vowels = ["a", "e", "i", "o", "u"]
+    if username.count("@") == 1:
+        name, domain = username.split("@")
+        if domain in domainList:
+            validUsername = True
+            print("Valid username")
+    else:
+        print("Invalid username")
 
-for word in words:
-    if word[0] in vowels:
-        words.insert(0, words.pop(words.index(word))) 
+    return validUsername
 
-print(words)
-"""
 
-words3 = ["tel", "bob", "cat", "dog", "huh", "pol", "num"]
-for word in words3:
-    if word[0] == word[-1]:
-        print(word)
+def verifyPassword(password):
+    verification = False
+    verifyPassword = input("Please enter your password again: ")
+
+    if verifyPassword == password:
+        verification = True
+
+    return verification
+
+def main():
+    username = input("Enter your email address: ")
+    domainList = ["ualberta.ca", "gmail.com"]
+    validUsername = checkUsername(username, domainList)
+
+    if validUsername:
+        password = input("Enter your password: ")
+        verification = verifyPassword(password)
+        if verification:
+            print("Valid password")
+
+
+
+if __name__ == "__main__":
+    main()

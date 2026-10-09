@@ -1,0 +1,6 @@
+Alice 85 90 92
+
+Bob 70 N/A 80 85
+Charlie 100 95 98
+INVALID DATA ROW
+Diana 88 92 84
