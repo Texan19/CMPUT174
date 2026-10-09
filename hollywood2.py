@@ -10,9 +10,9 @@ file.close()
 
 # - Welcome Message - #
 welcomeMessage = "Welcome to Hollywood Night!"
-print("=" * len(welcomeMessage))
-print(welcomeMessage)
-print("=" * len(welcomeMessage))
+print("==" + ("=" * len(welcomeMessage)) + "==")
+print("  " + welcomeMessage + "  ")
+print("==" + "=" * len(welcomeMessage) + "==")
 
 # - Processing - #
 for lines in content:
