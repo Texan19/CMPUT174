@@ -69,7 +69,7 @@ def displayBags(unifiedList):
     """
     display the information of the new bags
     :param unifiedList:
-    :return:
+    :return: None
     """
     bagTag = []
     bagDescription = []
@@ -83,6 +83,12 @@ def displayBags(unifiedList):
         print(f"# Bag {i+1}\n{bagTag[i]}\n{bagDescription[i]}")
 
 def matchBags(claimList, unifiedList):
+    """
+    Match the claimed bags description to the storage bags description
+    :param claimList: list
+    :param unifiedList: list
+    :return: str
+    """
     flightInfo = claimList[0].split("_")
     claimNumber = flightInfo[1].strip() # get the claim number for print statement
     claimDescription = claimList[2].strip() # get the description
