@@ -6,15 +6,15 @@ def readFile(claimFilename):
     """
 
     file = open(claimFilename, 'r')
-    fileContent = file.readlines()
+    claimList = file.readlines()
     file.close()
 
-    return fileContent
+    return claimList
 
-def getInfo(fileContent):
+def getInfo(claimList):
     """
     Process information about the claim file
-    :param fileContent: list
+    :param claimList: list
     :return: str
     """
 
@@ -25,12 +25,12 @@ def getInfo(fileContent):
 4. Bag Description
     """)
 
-    flightInfo = fileContent[0].split("_") # first line of the file content
+    flightInfo = claimList[0].split("_") # first line of the file content
     claimNumber = flightInfo[1] # part 2 of the first line of file content
     flightRoute = flightInfo[0] # part 1 of the first line of file content
 
-    claimsAgent = fileContent[1] # second line of file content
-    bagDescription = fileContent[2] # third line of the file content
+    claimsAgent = claimList[1] # second line of file content
+    bagDescription = claimList[2] # third line of the file content
 
     userChoice = input("Enter the sno. of the detail: ")
 
@@ -55,9 +55,9 @@ def main():
     while True:
         claimFilename = input("Enter claim file name: ")
 
-        fileContent = readFile(claimFilename)
+        claimList = readFile(claimFilename)
 
-        information = getInfo(fileContent)
+        information = getInfo(claimList)
         print(f"Here is the detail you requested about the claim\n{information}")
 
         goAgain = input("Process another claim? (y/n): ").lower()
