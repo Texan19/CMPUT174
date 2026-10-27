@@ -1,4 +1,9 @@
 def createGrid(filename):
+    """
+    creates a 2D list of occupancy grid
+    :param filename: file
+    :return: 2D list
+    """
     with open(filename, "r") as file:
         content = file.readlines()
 
@@ -20,10 +25,23 @@ def createGrid(filename):
             rowList.append(int(lines[i][j]))
         grid.append(rowList)
 
-    print(grid)
+    return grid
+
+def displayGrid(grid):
+    """
+    displays a grid of occupancy grid
+    :param grid: 2d list
+    :return: None
+    """
+    for row in grid:
+        for col in row:
+            print(col, end=" ")
+        print()
 
 def main():
-    createGrid("occupancy1.txt")
+    filename = input("Enter occupancy file name: ")
+    grid = createGrid(filename)
+    displayGrid(grid)
 
 if __name__ == "__main__":
     main()
