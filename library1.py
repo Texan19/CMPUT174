@@ -33,13 +33,14 @@ def displayGrid(grid):
     :param grid: 2d list
     :return: None
     """
+    print("Original Rutherford Occupancy Grid:")
     for row in grid:
         for col in row:
-            print(col, end=" ")
+            print(f"{col:>3}", end=" ")
         print()
 
 def main():
-    filename = input("Enter occupancy file name: ")
+    filename = input("Enter occupancy filename: ")
     grid = createGrid(filename)
     displayGrid(grid)
 
