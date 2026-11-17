@@ -1,0 +1,7 @@
+'C' → '👨' (Chef)
+'*' → '⬜'(clear floor)
+'E' → '📟'(final destination)
+'O' → '🔔'(order station)
+'S' → '🔥'(stove top)
+'F' → '🍳'(fryer)
+'W' → '🧊'(walk in freezer)
