@@ -66,7 +66,9 @@ def main():
     kitchenMap = readKitchen(filename)
     print(kitchenMap)
     displayKitchen(kitchenMap)
-    findChef(kitchenMap)
+    chef = findChef(kitchenMap)
+    print(f"Chef is at: {chef}")
+
 
 if __name__ == "__main__":
     main()

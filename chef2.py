@@ -127,7 +127,6 @@ def getValidMoves(kitchenMap, chefPosition):
 def main():
     filename = input("Enter filename: ")
     kitchenMap = readKitchen(filename)
-    print(kitchenMap)
     displayKitchen(kitchenMap)
 
     chefPosition = findChef(kitchenMap)
