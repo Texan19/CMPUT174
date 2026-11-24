@@ -140,20 +140,19 @@ def getMove(validMoves, pos):
     while True:
         direction = input("Enter move: ").lower().strip()
 
-        if direction not in POSSIBLE_MOVES:
-            continue
+        if direction in POSSIBLE_MOVES:
 
-        if direction == "up":
-            convertedMove = (chefRow - 1, chefCol)
-        elif direction == "down":
-            convertedMove = (chefRow + 1, chefCol)
-        elif direction == "left":
-            convertedMove = (chefRow, chefCol - 1)
-        elif direction == "right":
-            convertedMove = (chefRow, chefCol + 1)
+            if direction == "up":
+                convertedMove = (chefRow - 1, chefCol)
+            elif direction == "down":
+                convertedMove = (chefRow + 1, chefCol)
+            elif direction == "left":
+                convertedMove = (chefRow, chefCol - 1)
+            elif direction == "right":
+                convertedMove = (chefRow, chefCol + 1)
 
-        if convertedMove in validMoves:
-            return convertedMove
+            if convertedMove in validMoves:
+                return convertedMove
 
 
 def moveChef(kitchenMap, pos, convertedMove, hasOrder):
