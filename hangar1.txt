@@ -1,0 +1,6 @@
+Vega Prime,Hauler,94.0,Expert
+Orion Drift,Hauler,74.0,Intermediate
+Nova Spark,Fighter,50.5,Beginner
+Lyra Ghost,Shuttle,72.5,Intermediate
+Ember Wisp,Fighter,54.5,Beginner
+Titan Forge,Hauler,77.5,Advanced

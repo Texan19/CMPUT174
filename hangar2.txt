@@ -1,0 +1,8 @@
+Starfall,Explorer,96.0,Expert
+Aether Wing,Fighter,85.0,Expert
+Cobalt Vow,Hauler,78.0,Intermediate
+Dust Runner,Fighter,72.5,Intermediate
+Silent Verge,Explorer,76.0,Intermediate
+Ion Reaver,Hauler,91.5,Expert
+Pale Comet,Fighter,78.5,Intermediate
+Rust Halo,Hauler,90.0,Expert

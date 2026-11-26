@@ -1,0 +1,10 @@
+Void Seeker,Exotic Class,78.5,Intermediate
+Tidewalker,Hauler Class,78.0,Intermediate
+Grey Marrow,Exotic Class,50.5,Beginner
+Deep Current,Hauler Class,85.0,Advanced
+Triple Nexus,Fighter Class,80.5,Expert
+Hollow Gale,Exotic Class,61.0,Beginner
+Sky Cutter,Explorer Class,79.0,Expert
+Razor Vane,Explorer Class,80.0,Advanced
+Salt & Cinder,Twin Hull,71.0,Intermediate
+Snare Drift,Exotic Class,55.0,Beginner
