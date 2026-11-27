@@ -24,7 +24,7 @@ def display_ships(fleet):
     :return:
     """
     for ship, info in fleet.items():
-        print(f"{ship:<16} CLASS: {info[0]} - PWR: {info[1]} - RANK: {info[2]}")
+        print(f"{ship:<16} CLASS: {info[0]} - PWR: {info[1]:.1f} - RANK: {info[2]}")
 
 def add_ship(fleet):
     """
@@ -38,12 +38,12 @@ def add_ship(fleet):
 
     else:
         new_class = input("Enter class: ")
-        new_pwr = float(input("Enter rank: "))
+        new_pwr = float(input("Enter power: "))
         new_rank = input("Enter rank: ")
 
         fleet[new_ship] = [new_class, new_pwr, new_rank]
-        print(fleet[new_ship][1])
-        return f"{new_ship} has been added!"
+
+        return f"{new_ship} has been added"
 
 def remove_ship(fleet):
     """
@@ -68,15 +68,19 @@ def recharge_ship(fleet):
     if charge_ship not in fleet:
         return f"{charge_ship} does not exist"
     else:
-        charge_percentage = int(input("Enter a ship charge: "))
+        charge_percentage = int(input("Enter percentage: "))
         charge_percentage = (charge_percentage / 100) + 1
         current_power = fleet[charge_ship][1]
-        new_power = (charge_percentage * current_power)
+        new_power = round(charge_percentage * current_power, 1)
         fleet[charge_ship][1] = new_power
-        new_power = round(new_power, 1)
-        return f"{charge_ship}'s power is now {new_power}!"
+        return f"{charge_ship}'s power is now {new_power:.1f}"
 
 def do_expeditions(fleet):
+    """
+    create a dictionary of expeditions and determine the ships that can do the expeditions
+    :param fleet: dictionary
+    :return:
+    """
     expeditions = {
         "Scan": (23.4, "Beginner"),
         "Salvage": (55.1, "Intermediate"),
@@ -86,12 +90,12 @@ def do_expeditions(fleet):
 
     print("EXPEDITIONS")
     for expedition, requirements in expeditions.items():
-        print(f"\t- {expedition}: {requirements[0]} {requirements[1]}")
+        print(f"  - {expedition}:{requirements[0]} {requirements[1]}")
 
-    mission = input("Enter mission: ")
-    while mission not in expeditions:
+    mission = input("Enter expedition: ")
+    if mission not in expeditions:
         print(f"Expedition {mission} does not exist")
-        mission = input("Enter mission: ")
+        return
 
     qualified = []
 
@@ -100,18 +104,17 @@ def do_expeditions(fleet):
             qualified.append(ship)
 
     if len(qualified) == 0:
-        print(f"Expedition {mission} is impossible")
+        print(f"Expedition {mission} is impossible!")
     else:
-        print(f"Qualified ships: {qualified}")
-
+        print(f"Qualified ships: {', '.join(qualified)}")
 
 
 def main():
-    filename = input("Enter file name: ")
+    filename = input("Enter a filename: ")
     fleet = read_ships(filename)
 
     while True:
-        print("\nMENU\n1. Display Ships\n2. Add Ship\n3. Remove Ship\n4. Recharge Ship\n5. Send on Expedition\n6. Exit")
+        print("\nMENU\n1. Display ships\n2. Add ships\n3. Remove ships\n4. Recharge ship\n5. Send on expedition\n6. Exit")
         choice = input("Enter choice: ")
         if choice == '1':
             display_ships(fleet)
@@ -128,7 +131,6 @@ def main():
             return
         else:
             print("Invalid choice")
-
 
 if __name__ == "__main__":
     main()

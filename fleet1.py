@@ -8,7 +8,12 @@ def read_ships(filename):
     with open(filename, "r") as file:
         for line in file:
             line = line.strip().split(",")
-            fleet[line[0]] = line[1:]
+            ship_name = line[0]
+            ship_class = line[1]
+            ship_pwr = float(line[2])
+            ship_rank = line[3]
+
+            fleet[ship_name] = [ship_class, ship_pwr, ship_rank]
 
     return fleet
 
@@ -22,10 +27,10 @@ def display_ships(fleet):
         print(f"{ship:<16} CLASS: {info[0]} - PWR: {info[1]} - RANK: {info[2]}")
 
 def main():
-    filename = input("Enter file name: ")
+    filename = input("Enter a filename: ")
     fleet = read_ships(filename)
     while True:
-        print("MENU\n1. Display Ships\n2. Exit")
+        print("\nMENU\n1. Display ships\n2. Exit")
         choice = input("Enter choice: ")
         if choice == '1':
             display_ships(fleet)
